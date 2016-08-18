@@ -87,14 +87,32 @@
             <button id="delc" class="btn btn-default btn-del minusButton" type="button">
             <span class="glyphicon glyphicon-trash"></span>
             </button>
+            <button id="submit" class="btn btn-default btn-ok submit" type="button">
+              <span class="glyphicon glyphicon-ok"></span>
+            </button>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
+<script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
 <script type="text/javascript">
+
+var userRowInput = "";
+var userColumnInput = "";
+
+    JFCustomWidget.subscribe("ready", function(){
+      userRowInput = JFCustomWidget.getWidgetSetting('rowName');
+      userColumnInput = JFCustomWidget.getWidgetSetting('columnName');
+  
+  });
+   JFCustomWidget.subscribe("submit", function(){
+         var msg = {valid: true,value: document.getElementById('userRowInput','userColumnInput').value
+                    }
+                    JFCustomWidget.sendSubmit(msg);
+                });
+
 
 $('#addr').click(function(){
 
