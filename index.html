@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+	<title>answer matrix</title>
+	<style type="text/css">
+
+	      th {
+  	    	padding: 10px;
+  		    background-color: #d0d0d0;
+  		    color: white;
+	    	} 
+
+        body{
+        	display: table;
+    			margin-top: 8px;
+    			margin-right: 8px;
+    			margin-bottom: 8px;
+    			margin-left: 8px;
+        }
+
+      
+      	td{
+      		display: table-cell;
+          vertical-align: inherit;
+          background-color: #777;
+          color: white;
+          padding: 5px;
+                 
+		    }
+      	input{
+      		padding: 3px;
+          color: black;
+
+      	}
+      
+        .plusButton{
+          margin-left: 2px 2px;
+          font-size: 8px;
+        }
+        .minusButton{
+          margin-left: 2px 2px;
+          font-size: 8px;
+        }
+        
+	</style>
+</head>
+<body style="width: 900px;">
+  <table border="1" id="matrix_table">
+    <thead>
+       <tr>
+          <td></td>
+          <td>yyyy</td>
+          <td>zzzz</td>
+       </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>QQQQ</td>
+          <td>
+              <input type="text" id="textarea"/>
+          </td>
+          <td>
+              <input type="text"/>
+          </td>
+      </tr>
+    </tbody>
+</table>
+<br><br/>
+
+      <input id="rw" placeholder="Enter row "/>
+            <button id="addr" class="btn btn-success btn-add plusButton" type="button">
+            <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button id="delr" class="btn btn-default btn-del minusButton" type="button">
+            <span class="glyphicon glyphicon-trash"></span>
+            </button>
+       <br/>  
+
+      <input id="clm" placeholder="Enter column"/>
+            <button id="addc" class="btn btn-success btn-add plusButton" type="button">
+            <span class="glyphicon glyphicon-plus"></span>
+            </button>
+            <button id="delc" class="btn btn-default btn-del minusButton" type="button">
+            <span class="glyphicon glyphicon-trash"></span>
+            </button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script type="text/javascript">
+
+$('#addr').click(function(){
+
+    if($('#rw').val()){
+        var toAdd = $("#matrix_table tbody tr:last").clone();
+        $(toAdd).attr('data-ceren', $('#rw').val());
+        $(toAdd).attr('checked',false);
+        $('#matrix_table tbody').append(toAdd);
+        $('#matrix_table tbody tr:last td:first').html($('#rw').val());
+    }
+
+  });
+    
+$('#addc').click(function(){
+    if($('#clm').val()){
+        var toAddx = $("#matrix_table tbody tr:last").clone();
+        $(toAddx).attr('data-ceren', $('#clm').val());
+        $(toAddx).attr('checked',false);
+        $('#matrix_table tr').append($("<td>"));
+        $('#matrix_table thead tr>td:last').attr('data-ceren', $('#clm').val()).html($('#clm').val());
+        $('#matrix_table tbody tr').each(function() {
+          $(this).children('td:last').attr('data-ceren', $('#clm').val()).append($('<input type="text">'));
+        });
+    }
+
+});
+$('#delr').click(function(){
+    if ($('#rw').val()) {
+         $("[data-ceren="+$('#rw').val()+"]").remove()
+    }
+
+  });
+$('#delc').click(function(){
+
+   if ($('#clm').val()){
+      $("[data-ceren="+$('#clm').val()+"]").remove()
+      }
+    });
+
+
+
+
+
+  
+</script>
+
+</body>
+</html>
