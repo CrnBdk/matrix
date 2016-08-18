@@ -95,24 +95,8 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <script type="text/javascript">
-function(){
-   
-   var t = document.getElementById("table"),
-       d = t.getElementsByTagName("tr"),
-       r = d.getElementsByTagName("td");
 
-    var t = document.getElementById("table"),
-    tableRows = t.getElementsByTagName("tr"),
-    r = [], i, len, tds, j, jlen;
 
-    for ( i =0, len = tableRows.length; i<len; i++) {
-    tds = tableRows[i].getElementsByTagName('td');
-    for( j = 0, jlen = tds.length; j < jlen; j++) {
-        r.push(tds[j]);
-    }
-}
-
-}
 
 $('#addr').click(function(){
 
