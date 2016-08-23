@@ -52,7 +52,7 @@
   <table border="1" id="matrix_table">
     <thead>
        <tr>
-          <td></td>
+          <td>xxxx</td>
           <td>yyyy</td>
           <td>zzzz</td>
        </tr>
@@ -61,10 +61,10 @@
       <tr>
           <td>QQQQ</td>
           <td>
-              <input type="text" id="textarea"/>
+              <input type="text" id="row"/>
           </td>
           <td>
-              <input type="text"/>
+              <input type="text" id="row-1" />
           </td>
       </tr>
     </tbody>
@@ -87,32 +87,23 @@
             <button id="delc" class="btn btn-default btn-del minusButton" type="button">
             <span class="glyphicon glyphicon-trash"></span>
             </button>
-            <button id="submit" class="btn btn-default btn-ok submit" type="button">
-              <span class="glyphicon glyphicon-ok"></span>
-            </button>
+            
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
 <script type="text/javascript">
+<script src="//js.jotform.com/JotFormCustomWidget.min.js">
 
-var userRowInput = "";
-var userColumnInput = "";
-
-    JFCustomWidget.subscribe("ready", function(){
-      userRowInput = JFCustomWidget.getWidgetSetting('rowName');
-      userColumnInput = JFCustomWidget.getWidgetSetting('columnName');
+JFCustomWidget.subscribe("submit", function(){
+    var result = {value:"", valid: false};
+    result.value = document.getElementById("rw","clm").value;
+    result.valid = true;        
   
-  });
-   JFCustomWidget.subscribe("submit", function(){
-         var msg = {valid: true,value: document.getElementById('userRowInput','userColumnInput').value
-                    }
-                    JFCustomWidget.sendSubmit(msg);
-                });
-
+    JFCustomWidget.sendSubmit(result);
+    }); 
 
 $('#addr').click(function(){
 
