@@ -2,40 +2,41 @@
 <html>
 <head>
 
+   <script src="https://js.jotform.com/JotFormCustomWidget.min.js"></script> 
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 
-	<title>answer matrix</title>
-	<style type="text/css">
+  <title>answer matrix</title>
+  <style type="text/css">
 
-	      th {
-  	    	padding: 10px;
-  		    background-color: #d0d0d0;
-  		    color: white;
-	    	} 
+        th {
+          padding: 10px;
+          background-color: #d0d0d0;
+          color: white;
+        } 
 
         body{
-        	display: table;
-    			margin-top: 8px;
-    			margin-right: 8px;
-    			margin-bottom: 8px;
-    			margin-left: 8px;
+          display: table;
+          margin-top: 8px;
+          margin-right: 8px;
+          margin-bottom: 8px;
+          margin-left: 8px;
         }
 
       
-      	td{
-      		display: table-cell;
+        td{
+          display: table-cell;
           vertical-align: inherit;
           background-color: #777;
           color: white;
           padding: 5px;
                  
-		    }
-      	input{
-      		padding: 3px;
+        }
+        input{
+          padding: 3px;
           color: black;
 
-      	}
+        }
       
         .plusButton{
           margin-left: 2px 2px;
@@ -46,13 +47,13 @@
           font-size: 8px;
         }
         
-	</style>
+  </style>
 </head>
 <body style="width: 900px;">
   <table border="1" id="matrix_table">
     <thead>
        <tr>
-          <td>xxxx</td>
+          <td></td>
           <td>yyyy</td>
           <td>zzzz</td>
        </tr>
@@ -61,10 +62,10 @@
       <tr>
           <td>QQQQ</td>
           <td>
-              <input type="text" id="row"/>
+              <input type="text" id="textarea"/>
           </td>
           <td>
-              <input type="text" id="row-1" />
+              <input type="text"/>
           </td>
       </tr>
     </tbody>
@@ -87,25 +88,24 @@
             <button id="delc" class="btn btn-default btn-del minusButton" type="button">
             <span class="glyphicon glyphicon-trash"></span>
             </button>
-            
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//js.jotform.com/JotFormCustomWidget.min.js">
+
 <script type="text/javascript">
 
 
-JFCustomWidget.subscribe("submit", function(){
-    var result = {value:"", valid: false};
-    
-     result.value = document.getElementById("rw","clm").value;
-     result.valid = true;       
-  
-    JFCustomWidget.sendSubmit(result);
-    }); 
+JFCustomWidget.subscribe("submit", function() {
+      var result = {value:"", valid: false};
+      result.value = document.getElementById("input").value;
+      result.valid = true;
+   
+      JFCustomWidget.sendSubmit(result);
+    });
+
 
 $('#addr').click(function(){
 
