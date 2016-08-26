@@ -144,7 +144,7 @@
     </ul>
 
     <div style="display: none;">
-      <input id="rw" placeholder="Enter row "/>
+      <input class="inputtable" id="rw" placeholder="Enter row "/>
             <button id="addr" class="btn btn-success btn-add plusButton" type="button">
             <span class="glyphicon glyphicon-plus"></span>
             </button>
@@ -153,7 +153,7 @@
             </button>
        <br/>  
 
-      <input id="clm" placeholder="Enter column"/>
+      <input class="inputtable" id="clm" placeholder="Enter column"/>
             <button id="addc" class="btn btn-success btn-add plusButton" type="button">
             <span class="glyphicon glyphicon-plus"></span>
             </button>
@@ -173,7 +173,10 @@
 
 JFCustomWidget.subscribe("submit", function() {
       var result = {value:"", valid: false};
-      result.value = document.getElementById("rw").value + ' ' + document.getElementById("clm").value;
+      $('#inputtable').each(function() {
+
+        result.value += $(this).val()+'\n';
+      });
       result.valid = true;
    
       JFCustomWidget.sendSubmit(result);
