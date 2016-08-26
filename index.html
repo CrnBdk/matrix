@@ -37,6 +37,10 @@
           color: black;
 
         }
+
+        body * { box-sizing: border-box; }
+
+        ul, ol { margin: 0; padding: 0; list-style: none; }
       
         .plusButton{
           margin-left: 2px 2px;
@@ -45,6 +49,39 @@
         .minusButton{
           margin-left: 2px 2px;
           font-size: 8px;
+        }
+
+        .editList { width: 300px; border: 1px solid #f2f2f2; padding: 12px; display: none; }
+        #stage .editList { display: block; }
+
+        .editList input[type=text] { width: 100%; line-height: 19px; padding: 2px 5px; font-size: 12px; }
+        .editList .btn { display: block; float: left; padding: 7px 9px; }
+        .editList .btn + .btn { margin-left: 6px; }
+
+        .card-rightSide {
+          float: right;
+          margin-left: 6px;
+        }
+        .card-leftSide {
+          float: left;
+          margin-right: 12px;
+        }
+
+        .card-contentWrapper:before,
+        .card-contentWrapper:after {
+          content: " ";
+          display: table;
+        }
+        .card-contentWrapper:after {
+          clear: both;
+        }
+        .card-content {
+          display: table-cell;
+          vertical-align: top;
+          width: 10000px;
+        }
+        .listItem + .listItem {
+          margin-top: 12px;
         }
         
   </style>
@@ -71,7 +108,43 @@
     </tbody>
 </table>
 <br><br/>
+  
+    <ul class="editList">
 
+      <li class="card listItem">
+        <div class="card-rightSide">
+          <button id="addr" class="btn btn-success btn-add plusButton" type="button">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+          <button id="delr" class="btn btn-default btn-del minusButton" type="button">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </div>
+        <div class="card-contentWrapper">
+          <div class="card-content">
+            <input type="text" id="rw" placeholder="Enter row "/>
+          </div>
+        </div>
+      </li>
+
+      <li class="card listItem">
+        <div class="card-rightSide">
+          <button id="addc" class="btn btn-success btn-add plusButton" type="button">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+          <button id="delc" class="btn btn-default btn-del minusButton" type="button">
+            <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </div>
+        <div class="card-contentWrapper">
+          <div class="card-content">
+            <input type="text" id="clm" placeholder="Enter column"/>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div style="display: none;">
       <input id="rw" placeholder="Enter row "/>
             <button id="addr" class="btn btn-success btn-add plusButton" type="button">
             <span class="glyphicon glyphicon-plus"></span>
@@ -88,6 +161,7 @@
             <button id="delc" class="btn btn-default btn-del minusButton" type="button">
             <span class="glyphicon glyphicon-trash"></span>
             </button>
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
