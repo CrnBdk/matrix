@@ -173,7 +173,7 @@
 
 JFCustomWidget.subscribe("submit", function() {
       var result = {value:"", valid: false};
-      result.value = document.getElementById("rw").value + document.getElementById("clm").value;
+      result.value = document.getElementById("rw").value + ' ' + document.getElementById("clm").value;
       result.valid = true;
    
       JFCustomWidget.sendSubmit(result);
